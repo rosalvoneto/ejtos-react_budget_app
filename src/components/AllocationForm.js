@@ -9,6 +9,15 @@ const AllocationForm = (props) => {
     const [cost, setCost] = useState('');
     const [action, setAction] = useState('');
 
+    const handleChange = (e) => {
+        if (isNaN(e.target.value)) {
+            return            
+        }else{            
+            const onlyNums = parseInt(e.target.value);
+            setCost(onlyNums);
+        }        
+      };    
+
     const submitEvent = () => {
 
             if(cost > remaining) {
@@ -66,8 +75,8 @@ const AllocationForm = (props) => {
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
-                        onChange={(event) => setCost(event.target.value)}>
-                        </input>
+                        onChange={(event) => handleChange(event)}>
+                    </input>
 
                     <button className="btn btn-primary" onClick={submitEvent} style={{ marginLeft: '2rem' }}>
                         Save
