@@ -13,8 +13,7 @@ const Budget = () => {
         }else{            
             const onlyNums = parseInt(e.target.value);            
             if (!isNaN(onlyNums)){
-                const parte = (onlyNums > newBudget) ? 10 : -10;
-                
+                const parte = (onlyNums > newBudget) ? 10 : -10;                
                 setnewBudget(newBudget + parte);
                 dispatch({
                     type: 'SET_BUDGET',
