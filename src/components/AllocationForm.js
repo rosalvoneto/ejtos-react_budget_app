@@ -13,8 +13,12 @@ const AllocationForm = (props) => {
         if (isNaN(e.target.value)) {
             return            
         }else{            
-            const onlyNums = parseInt(e.target.value);
-            setCost(onlyNums);
+            const onlyNums = parseInt(e.target.value);            
+            if (!isNaN(onlyNums)){
+                setCost(onlyNums);
+            }else{
+                setCost('');
+            }            
         }        
       };    
 
@@ -71,7 +75,7 @@ const AllocationForm = (props) => {
 
                     <input
                         required='required'
-                        type='number'
+                        type='text'
                         id='cost'
                         value={cost}
                         style={{ marginLeft: '2rem' , size: 10}}
