@@ -1,11 +1,9 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
     
     const { dispatch, budget } = useContext(AppContext);
-
-    const [newBudget, setnewBudget] = useState(budget);
 
     const handleChange = (e) => {
         if (isNaN(e.target.value)) {
@@ -13,11 +11,10 @@ const Budget = () => {
         }else{            
             const onlyNums = parseInt(e.target.value);            
             if (!isNaN(onlyNums)){
-                const parte = (onlyNums > newBudget) ? 10 : -10;                
-                setnewBudget(newBudget + parte);
+                const parte = (onlyNums > budget) ? 10 : -10;
                 dispatch({
                     type: 'SET_BUDGET',
-                    payload: newBudget,
+                    payload: (budget + parte),
                 });
             }            
         }        
@@ -32,7 +29,7 @@ const Budget = () => {
                 required='required'
                 type='number'
                 id='cost'
-                value={newBudget}
+                value={budget}
                 style={{ size: 10}}
                 onChange={(event) => handleChange(event)}
                 >

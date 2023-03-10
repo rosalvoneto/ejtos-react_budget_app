@@ -15,7 +15,7 @@ const AllocationForm = (props) => {
         }else{            
             const onlyNums = parseInt(e.target.value);            
             if (!isNaN(onlyNums)){
-                setCost(onlyNums);
+                setCost(onlyNums);                
             }else{
                 setCost('');
             }            
