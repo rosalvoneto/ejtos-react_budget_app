@@ -3,7 +3,7 @@ import { AppContext } from '../context/AppContext';
 
 const Budget = () => {
     
-    const { dispatch, budget } = useContext(AppContext);
+    const { dispatch, budget, currency } = useContext(AppContext);
 
     const handleChange = (e) => {
         if (isNaN(e.target.value)) {
@@ -23,14 +23,14 @@ const Budget = () => {
     return (
         <div className='alert alert-secondary'>
 
-            <span>Budget: £
+            <span>Budget: {currency} 
 
             <input
                 required='required'
                 type='number'
                 id='cost'
                 value={budget}
-                style={{ size: 10}}
+                style={{ width: '170px', marginLeft: '1rem'}}
                 onChange={(event) => handleChange(event)}
                 >
             </input>            
